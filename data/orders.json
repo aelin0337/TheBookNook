@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "507f1f77bcf86cd799439001",
+        "userId": "507f1f77bcf86cd799439011",
+        "items": [
+            {
+                "bookId": "507f1f77bcf86cd799439001",
+                "priceAtPurchase": 12.99,
+                "quantity": 1
+            },
+            {
+                "bookId": "507f1f77bcf86cd799439009",
+                "priceAtPurchase": 16.99,
+                "quantity": 2
+            }
+        ],
+        "totalAmount": 46.97,
+        "status": "completed",
+        "createdAt": "2024-01-20T09:00:00Z"
+    },
+    {
+        "_id": "507f1f77bcf86cd799439002",
+        "userId": "507f1f77bcf86cd799439012",
+        "items": [
+            {
+                "bookId": "507f1f77bcf86cd799439011",
+                "priceAtPurchase": 17.99,
+                "quantity": 1
+            }
+        ],
+        "totalAmount": 17.99,
+        "status": "paid",
+        "createdAt": "2024-01-21T10:15:00Z"
+    },
+    {
+        "_id": "507f1f77bcf86cd799439003",
+        "userId": "507f1f77bcf86cd799439013",
+        "items": [
+            {
+                "bookId": "507f1f77bcf86cd799439008",
+                "priceAtPurchase": 29.99,
+                "quantity": 1
+            },
+            {
+                "bookId": "507f1f77bcf86cd799439010",
+                "priceAtPurchase": 13.99,
+                "quantity": 1
+            }
+        ],
+        "totalAmount": 43.98,
+        "status": "shipped",
+        "createdAt": "2024-01-22T11:30:00Z"
+    },
+    {
+        "_id": "507f1f77bcf86cd799439004",
+        "userId": "507f1f77bcf86cd799439014",
+        "items": [
+            {
+                "bookId": "507f1f77bcf86cd799439005",
+                "priceAtPurchase": 13.49,
+                "quantity": 1
+            }
+        ],
+        "totalAmount": 13.49,
+        "status": "pending",
+        "createdAt": "2024-01-23T12:45:00Z"
+    },
+    {
+        "_id": "507f1f77bcf86cd799439005",
+        "userId": "507f1f77bcf86cd799439015",
+        "items": [
+            {
+                "bookId": "507f1f77bcf86cd799439023",
+                "priceAtPurchase": 14.99,
+                "quantity": 3
+            }
+        ],
+        "totalAmount": 44.97,
+        "status": "cancelled",
+        "createdAt": "2024-01-24T14:00:00Z"
+    }
+]

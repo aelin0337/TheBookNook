@@ -1,0 +1,98 @@
+[
+    {
+        "_id": "60af1f77bcf86cd799439051",
+        "userId": "507f1f77bcf86cd799439011",
+        "bookId": "507f1f77bcf86cd799439001",
+        "rating": 5,
+        "comment": "A timeless classic with beautiful prose.",
+        "createdAt": "2024-01-21T08:00:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439052",
+        "userId": "507f1f77bcf86cd799439012",
+        "bookId": "507f1f77bcf86cd799439011",
+        "rating": 5,
+        "comment": "Magical and charming — perfect for all ages.",
+        "createdAt": "2024-01-22T10:20:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439053",
+        "userId": "507f1f77bcf86cd799439013",
+        "bookId": "507f1f77bcf86cd799439008",
+        "rating": 5,
+        "comment": "Epic, immersive, and unforgettable.",
+        "createdAt": "2024-01-23T12:30:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439054",
+        "userId": "507f1f77bcf86cd799439014",
+        "bookId": "507f1f77bcf86cd799439005",
+        "rating": 4,
+        "comment": "Compelling voice and memorable narrator.",
+        "createdAt": "2024-01-24T09:15:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439055",
+        "userId": "507f1f77bcf86cd799439015",
+        "bookId": "507f1f77bcf86cd799439003",
+        "rating": 5,
+        "comment": "Chilling and still relevant today.",
+        "createdAt": "2024-01-25T11:00:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439056",
+        "userId": "507f1f77bcf86cd799439016",
+        "bookId": "507f1f77bcf86cd799439004",
+        "rating": 5,
+        "comment": "Witty, insightful, and endlessly re-readable.",
+        "createdAt": "2024-01-26T14:45:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439057",
+        "userId": "507f1f77bcf86cd799439017",
+        "bookId": "507f1f77bcf86cd799439009",
+        "rating": 4,
+        "comment": "Enjoyable adventure with great characters.",
+        "createdAt": "2024-01-27T16:00:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439058",
+        "userId": "507f1f77bcf86cd799439018",
+        "bookId": "507f1f77bcf86cd799439015",
+        "rating": 3,
+        "comment": "Slow in parts but powerful themes.",
+        "createdAt": "2024-01-28T09:30:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd799439059",
+        "userId": "507f1f77bcf86cd799439019",
+        "bookId": "507f1f77bcf86cd799439017",
+        "rating": 5,
+        "comment": "Profound, intense, and brilliantly written.",
+        "createdAt": "2024-01-29T13:10:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd79943905a",
+        "userId": "507f1f77bcf86cd799439020",
+        "bookId": "507f1f77bcf86cd799439025",
+        "rating": 5,
+        "comment": "Heartbreaking and deeply moving.",
+        "createdAt": "2024-01-30T10:00:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd79943905b",
+        "userId": "507f1f77bcf86cd799439011",
+        "bookId": "507f1f77bcf86cd799439048",
+        "rating": 5,
+        "comment": "Beautiful special edition — worth owning.",
+        "createdAt": "2024-01-31T08:00:00Z"
+    },
+    {
+        "_id": "60af1f77bcf86cd79943905c",
+        "userId": "507f1f77bcf86cd799439012",
+        "bookId": "507f1f77bcf86cd799439022",
+        "rating": 4,
+        "comment": "Thought-provoking and well-paced.",
+        "createdAt": "2024-02-01T15:00:00Z"
+    }
+]

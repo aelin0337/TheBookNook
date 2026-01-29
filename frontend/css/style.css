@@ -1,0 +1,18 @@
+body {
+  background-color: #f8f9fa; /* мягкий серый фон */
+}
+
+.book-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.book-card h5 {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.book-card p {
+  margin: 5px 0;
+}
