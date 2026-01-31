@@ -1,18 +1,403 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
 body {
-  background-color: #f8f9fa; /* мягкий серый фон */
+  min-height: 100vh;
+  background-color: #412F26;
+  color: #412F26;
+}
+.page-title {
+  color: #EDE1D2;
+  font-weight: 600;
+}
+.container {
+  background: transparent;
+}
+.custom-color {
+  color: #CBB89D;
 }
 
-.book-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+.page-title {
+  font-family: 'Imperial Script', cursive;
+  font-size: 5rem;
+  color: #EDE1D2;
+  font-weight: normal;
 }
 
+.custom-btn {
+  background-color: #806044;
+  color: #EDE1D2;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.custom-btn:hover {
+  background-color: #412F26;
+  color: #fff;
+}
+.custom-text {
+  color: #EDE1D2;
+  font-family: 'Imperial Script', cursive;
+  font-size: 5rem;
+}
+
+nav {
+  padding: 16px 24px;
+  background-color: #6A6F4C;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 24px;
+}
+
+nav a {
+  color: #EDE1D2;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 14px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #CBB89D;
+}
+
+/* =========================
+   BOOK GRID
+========================= */
+.books-container,
+#books {
+  padding: 24px;
+}
+
+/* =========================
+   CARDS (Bootstrap override)
+========================= */
+.card,
+.book-card {
+  background-color: #EDE1D2;
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 10px 25px rgba(65, 47, 38, 0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.6s ease;
+}
+
+.card:hover,
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(65, 47, 38, 0.35);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+.card h5,
 .book-card h5 {
-  margin-top: 10px;
   font-size: 1rem;
+  font-weight: 600;
+  color: #5D2510;
+  margin-bottom: 6px;
 }
 
+.card p,
 .book-card p {
-  margin: 5px 0;
+  font-size: 0.85rem;
+  color: #412F26;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.price {
+  margin-top: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6A6F4C;
+}
+
+/* =========================
+   IMAGES
+========================= */
+.book-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #806044;
+}
+
+/* =========================
+   BOOTSTRAP BUTTON OVERRIDE
+========================= */
+.btn {
+  border-radius: 12px;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+/* View details */
+.btn-primary {
+  background-color: #6A6F4C;
+  border: none;
+  color: #EDE1D2;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #5D2510;
+  box-shadow: 0 6px 16px rgba(93, 37, 16, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Add to cart */
+.btn-success,
+.btn-add-to-cart {
+  background-color: #806044;
+  border: none;
+  color: #EDE1D2;   /* цвет текста */
+  font-weight: 600;
+}
+
+.btn-success:hover,
+.btn-add-to-cart:hover {
+  background-color: #412F26;
+  color: #EDE1D2;   /* добавляем, чтобы текст не менялся на черный */
+  transform: translateY(-2px);
+}
+
+.btn-success:active,
+.btn-add-to-cart:active {
+  background-color: #5D2510;
+  color: #EDE1D2;   /* также фиксируем цвет текста при нажатии */
+  transform: translateY(0);
+}
+.custom-text {
+  color: #EDE1D2;
+}
+/* =========================
+   TABLES (Cart / Admin)
+========================= */
+.table {
+  background-color: #EDE1D2;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #CBB89D;
+  color: #412F26;
+  border: none;
+}
+
+.table td {
+  background-color: #EDE1D2;
+  border-color: #CBB89D;
+}
+
+/* =========================
+   BADGES
+========================= */
+.badge {
+  background-color: #806044;
+  color: #EDE1D2;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   ADMIN SECTIONS
+========================= */
+section {
+  background-color: #EDE1D2;   /* бежевый */
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 12px 30px rgba(65, 47, 38, 0.35);
+}
+
+/* Заголовки внутри admin */
+section h3 {
+  color: #5D2510;
+  font-weight: 600;
+}
+
+/* Admin main title */
+h1 {
+  color: #EDE1D2;
+}
+
+/* Контейнеры с данными */
+#users,
+#orders,
+#books {
+  margin-top: 16px;
+}
+
+.btn-view-details {
+  background-color: #CBB89D;
+  border: 1px solid #806044;
+  color: #412F26;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-view-details:hover {
+  background-color: #806044;
+  color: #EDE1D2;
+}
+
+.btn-view-details:active {
+  background-color: #5D2510;
+  border-color: #5D2510;
+}
+
+.btn-remove {
+  background-color: #CBB89D;
+  border: 1px solid #806044;
+  color: #412F26;
+  transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+  background-color: #806044;
+  color: #EDE1D2;
+}
+
+.btn-remove:active {
+  background-color: #5D2510;
+}
+
+/* ===== Auth Card ===== */
+.auth-card {
+  background: #EDE1D2;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 16px 40px rgba(65, 47, 38, 0.35);
+}
+
+.auth-card h2 {
+  color: #5D2510;
+}
+
+/* Inputs */
+.auth-card .form-control {
+  border-radius: 12px;
+  border: 1px solid #806044;
+}
+
+.auth-card .form-control:focus {
+  border-color: #6A6F4C;
+  box-shadow: 0 0 0 3px rgba(203, 184, 157, 0.5);
+}
+
+/* Links */
+.auth-card a {
+  color: #6A6F4C;
+  text-decoration: none;
+}
+
+.auth-card a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Orders ===== */
+.order-card {
+  background: #EDE1D2;
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 14px 32px rgba(65, 47, 38, 0.35);
+  color: #412F26;
+}
+
+.order-card ul {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.order-card li {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+/* ===== Profile ===== */
+.profile-card {
+  background: #EDE1D2;
+  border-radius: 20px;
+  padding: 28px;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 16px 36px rgba(65, 47, 38, 0.35);
+  color: #412F26;
+}
+
+.profile-card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.profile-card b {
+  color: #5D2510;
+}
+
+/* ===== Auth Pages ===== */
+.auth-card {
+  background: #EDE1D2;
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid #CBB89D;
+  box-shadow: 0 18px 40px rgba(65, 47, 38, 0.35);
+}
+
+.auth-card .form-label {
+  color: #5D2510;
+  font-weight: 500;
+}
+.no-orders-text {
+  color: #CBB89D;
+  font-weight: 500;
+}
+
+.auth-card a {
+  color: #6A6F4C;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-card a:hover {
+  color: #5D2510;
+}
+
+.navbar-brand img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
 }

@@ -1,7 +1,155 @@
-body {
-  background-color: #f5f5f5;
+/* ===== Global ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #EDE1D2,
+    #CBB89D
+  );
+  color: #412F26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Card ===== */
 .card {
-  max-width: 500px;
+  width: 100%;
+  max-width: 520px;
+  background: #EDE1D2;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow:
+    0 10px 30px rgba(65, 47, 38, 0.25);
+  border: 1px solid #CBB89D;
+  animation: fadeIn 0.6s ease;
+}
+
+/* ===== Headings ===== */
+.card h1,
+.card h2,
+.card h3 {
+  color: #5D2510;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.card h1 {
+  font-size: 1.8rem;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+}
+
+/* ===== Text ===== */
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #412F26;
+  margin-bottom: 16px;
+}
+
+/* ===== Profile block ===== */
+.profile-info {
+  background: #CBB89D;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+h2 {
+  background: #CBB89D;
+}
+
+/* ===== Inputs ===== */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #806044;
+  background: #EDE1D2;
+  color: #412F26;
+  transition: all 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6A6F4C;
+  box-shadow: 0 0 0 2px rgba(106, 111, 76, 0.25);
+}
+
+/* ===== Buttons ===== */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #6A6F4C;
+  color: #EDE1D2;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background: #5D2510;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(93, 37, 16, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ===== Links ===== */
+a {
+  color: #806044;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Small UI details ===== */
+.divider {
+  height: 1px;
+  background: #806044;
+  margin: 20px 0;
+  opacity: 0.4;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #6A6F4C;
+  color: #EDE1D2;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 6px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
