@@ -3,8 +3,6 @@ import { apiRequest } from './api.js';
 function formatPrice(price) {
   return price.toFixed(2) + ' $';
 }
-
-// Загрузка книг, опционально по жанру
 async function loadBooks(genreId = '') {
   const container = document.getElementById('booksContainer');
   container.innerHTML = '<p>Загрузка книг...</p>';
@@ -54,7 +52,6 @@ async function loadBooks(genreId = '') {
   }
 }
 
-// Загрузка жанров в селект
 async function loadGenres() {
   const select = document.getElementById('genreSelect');
   select.innerHTML = '<option value="">Все жанры</option>';
@@ -69,7 +66,6 @@ async function loadGenres() {
       select.appendChild(option);
     });
 
-    // Навешиваем change событие на селект
     select.addEventListener('change', () => {
       loadBooks(select.value);
     });
@@ -79,13 +75,11 @@ async function loadGenres() {
   }
 }
 
-// Инициализация страницы
 document.addEventListener('DOMContentLoaded', () => {
-  loadGenres(); // сначала загружаем жанры
-  loadBooks();  // затем все книги
+  loadGenres();
+  loadBooks();
 });
 
-// Заглушка для добавления в корзину
 function addToCart(book) {
   console.log(`Добавлено в корзину: ${book.title}`);
 }

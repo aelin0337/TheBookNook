@@ -18,7 +18,7 @@ router.get('/aggregate/price-desc', async (req, res) => {
           genreId: 1
         }
       },
-      { $sort: { price: -1 } } // по убыванию цены
+      { $sort: { price: -1 } }
     ]);
     res.json(books);
   } catch (err) {

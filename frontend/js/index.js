@@ -66,7 +66,6 @@ async function loadBooks() {
   });
 }
 
-// Add book to cart
 function addToCart(book) {
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
@@ -85,7 +84,7 @@ function addToCart(book) {
       _id: book._id,
       title: book.title,
       author: book.author,
-      price: book.price, // цена хранится числом
+      price: book.price,
       quantity: 1
     });
   }
@@ -93,6 +92,4 @@ function addToCart(book) {
   localStorage.setItem('cart', JSON.stringify(cart));
   alert(`"${book.title}" has been added to your cart`);
 }
-
-// Load books on page start
 loadBooks();

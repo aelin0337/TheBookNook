@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const bookSchema = new mongoose.Schema(
   {
     _id: {
-      type: String, // так как в JSON _id уже строки
+      type: String,
       required: true,
     },
     title: {
@@ -15,7 +15,7 @@ const bookSchema = new mongoose.Schema(
       required: true,
     },
     genreId: {
-      type: String, // ссылка на Genre._id
+      type: String,
       required: true,
     },
     price: {
@@ -41,7 +41,7 @@ const bookSchema = new mongoose.Schema(
     },
   },
   {
-    versionKey: false, // убираем __v
+    versionKey: false,
   }
 );
 

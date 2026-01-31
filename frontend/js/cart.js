@@ -69,7 +69,6 @@ function loadCart() {
 
   cartContainer.innerHTML = html;
 
-  // Quantity change
   document.querySelectorAll('.quantity-input').forEach(input => {
     input.addEventListener('change', (e) => {
       const id = e.target.dataset.id;
@@ -78,7 +77,6 @@ function loadCart() {
     });
   });
 
-  // Remove
   document.querySelectorAll('.btn-remove').forEach(btn => {
     btn.addEventListener('click', () => {
       removeFromCart(btn.dataset.id);

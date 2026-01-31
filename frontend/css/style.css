@@ -65,17 +65,10 @@ nav a:hover {
   color: #CBB89D;
 }
 
-/* =========================
-   BOOK GRID
-========================= */
-.books-container,
 #books {
   padding: 24px;
 }
 
-/* =========================
-   CARDS (Bootstrap override)
-========================= */
 .card,
 .book-card {
   background-color: #EDE1D2;
@@ -95,9 +88,6 @@ nav a:hover {
   box-shadow: 0 18px 40px rgba(65, 47, 38, 0.35);
 }
 
-/* =========================
-   CARD CONTENT
-========================= */
 .card h5,
 .book-card h5 {
   font-size: 1rem;
@@ -121,9 +111,6 @@ nav a:hover {
   color: #6A6F4C;
 }
 
-/* =========================
-   IMAGES
-========================= */
 .book-card img {
   width: 100%;
   height: 260px;
@@ -133,16 +120,12 @@ nav a:hover {
   border: 1px solid #806044;
 }
 
-/* =========================
-   BOOTSTRAP BUTTON OVERRIDE
-========================= */
 .btn {
   border-radius: 12px;
   font-size: 0.85rem;
   transition: all 0.25s ease;
 }
 
-/* View details */
 .btn-primary {
   background-color: #6A6F4C;
   border: none;
@@ -156,34 +139,30 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* Add to cart */
 .btn-success,
 .btn-add-to-cart {
   background-color: #806044;
   border: none;
-  color: #EDE1D2;   /* цвет текста */
+  color: #EDE1D2;
   font-weight: 600;
 }
 
 .btn-success:hover,
 .btn-add-to-cart:hover {
   background-color: #412F26;
-  color: #EDE1D2;   /* добавляем, чтобы текст не менялся на черный */
+  color: #EDE1D2;
   transform: translateY(-2px);
 }
 
 .btn-success:active,
 .btn-add-to-cart:active {
   background-color: #5D2510;
-  color: #EDE1D2;   /* также фиксируем цвет текста при нажатии */
+  color: #EDE1D2;
   transform: translateY(0);
 }
 .custom-text {
   color: #EDE1D2;
 }
-/* =========================
-   TABLES (Cart / Admin)
-========================= */
 .table {
   background-color: #EDE1D2;
   border-radius: 16px;
@@ -201,9 +180,6 @@ nav a:hover {
   border-color: #CBB89D;
 }
 
-/* =========================
-   BADGES
-========================= */
 .badge {
   background-color: #806044;
   color: #EDE1D2;
@@ -211,10 +187,6 @@ nav a:hover {
   border-radius: 999px;
   font-size: 0.7rem;
 }
-
-/* =========================
-   ANIMATIONS
-========================= */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -226,29 +198,23 @@ nav a:hover {
   }
 }
 
-/* =========================
-   ADMIN SECTIONS
-========================= */
 section {
-  background-color: #EDE1D2;   /* бежевый */
+  background-color: #EDE1D2;
   border-radius: 18px;
   padding: 24px;
   border: 1px solid #CBB89D;
   box-shadow: 0 12px 30px rgba(65, 47, 38, 0.35);
 }
 
-/* Заголовки внутри admin */
 section h3 {
   color: #5D2510;
   font-weight: 600;
 }
 
-/* Admin main title */
 h1 {
   color: #EDE1D2;
 }
 
-/* Контейнеры с данными */
 #users,
 #orders,
 #books {
@@ -289,7 +255,6 @@ h1 {
   background-color: #5D2510;
 }
 
-/* ===== Auth Card ===== */
 .auth-card {
   background: #EDE1D2;
   border-radius: 20px;
@@ -302,7 +267,6 @@ h1 {
   color: #5D2510;
 }
 
-/* Inputs */
 .auth-card .form-control {
   border-radius: 12px;
   border: 1px solid #806044;
@@ -313,7 +277,6 @@ h1 {
   box-shadow: 0 0 0 3px rgba(203, 184, 157, 0.5);
 }
 
-/* Links */
 .auth-card a {
   color: #6A6F4C;
   text-decoration: none;
@@ -323,7 +286,6 @@ h1 {
   text-decoration: underline;
 }
 
-/* ===== Orders ===== */
 .order-card {
   background: #EDE1D2;
   border-radius: 18px;
@@ -343,7 +305,6 @@ h1 {
   margin-bottom: 4px;
 }
 
-/* ===== Profile ===== */
 .profile-card {
   background: #EDE1D2;
   border-radius: 20px;
@@ -364,7 +325,6 @@ h1 {
   color: #5D2510;
 }
 
-/* ===== Auth Pages ===== */
 .auth-card {
   background: #EDE1D2;
   border-radius: 20px;

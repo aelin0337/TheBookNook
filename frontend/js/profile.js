@@ -1,23 +1,21 @@
-import { apiRequest } from './js/api.js';
-
-const profileDiv = document.getElementById('profile');
+import { apiRequest } from './api.js';
 
 async function loadProfile() {
   const token = localStorage.getItem('token');
   if (!token) {
-    profileDiv.innerHTML = '<p>Пожалуйста, войдите в аккаунт.</p>';
+    alert('Please log in first');
     return;
   }
 
   try {
     const user = await apiRequest('/users/me', 'GET', null, token);
-    profileDiv.innerHTML = `
-      <p><b>Имя:</b> ${user.name}</p>
-      <p><b>Email:</b> ${user.email}</p>
-      <p><b>Роль:</b> ${user.role}</p>
-    `;
+
+    document.getElementById('profile-name').textContent = user.name;
+    document.getElementById('profile-email').textContent = user.email;
+    document.getElementById('profile-role').textContent = user.role;
   } catch (e) {
-    profileDiv.textContent = 'Ошибка загрузки профиля';
+    console.error(e);
+    alert('Ошибка загрузки профиля');
   }
 }
 

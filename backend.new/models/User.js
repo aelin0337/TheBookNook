@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   _id: {
-    type: String, // совпадает с JSON
+    type: String,
     required: true,
   },
   name: {

@@ -1,49 +1,45 @@
-// userController.js
+
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
-// ================== Регистрация ==================
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body; // получаем обычный пароль
+    const { name, email, password } = req.body;
 
-    // Проверка существующего email
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: "Email уже используется" });
+      return res.status(400).json({ message: "Email already used" });
     }
 
     const user = new User({
       name,
       email,
-      passwordHash: password, // сохраняем пароль как текст для учебного проекта
+      passwordHash: password,
       role: "user",
     });
 
     await user.save();
 
-    res.status(201).json({ message: "Пользователь зарегистрирован", userId: user._id });
+    res.status(201).json({ message: "User registered", userId: user._id });
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при регистрации пользователя",
+      message: "Error registering user",
       error: error.message,
     });
   }
 };
 
-// ================== Логин ==================
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: "Пользователь не найден" });
+      return res.status(404).json({ message: "User not found" });
     }
 
-    // Проверка пароля напрямую
     if (user.passwordHash !== password) {
-      return res.status(401).json({ message: "Неверный пароль" });
+      return res.status(401).json({ message: "incorrect password" });
     }
 
     const token = jwt.sign(
@@ -58,19 +54,18 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при входе",
+      message: "Error logging in",
       error: error.message,
     });
   }
 };
 
-// ================== Обновление пользователя ==================
 export const updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
 
     if (req.user.role !== "admin" && req.user._id.toString() !== userId) {
-      return res.status(403).json({ message: "Нет доступа" });
+      return res.status(403).json({ message: "not have access" });
     }
 
     if (req.user.role !== "admin") delete req.body.role;
@@ -81,68 +76,62 @@ export const updateUser = async (req, res) => {
       { new: true }
     ).select("-passwordHash");
 
-    if (!updatedUser) return res.status(404).json({ message: "Пользователь не найден" });
+    if (!updatedUser) return res.status(404).json({ message: "User not found" });
 
     res.json(updatedUser);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при обновлении пользователя",
+      message: "Error updating user",
       error: error.message,
     });
   }
 };
-// ================== Мой профиль ==================
 export const getMe = async (req, res) => {
   const user = await User.findById(req.user._id).select("-passwordHash");
   res.json(user);
 };
 
-
-// ================== Удаление пользователя ==================
 export const deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
 
-    if (!deletedUser) return res.status(404).json({ message: "Пользователь не найден" });
+    if (!deletedUser) return res.status(404).json({ message: "User not found" });
 
-    res.json({ message: "Пользователь удалён" });
+    res.json({ message: "User deleted" });
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при удалении пользователя",
+      message: "Error",
       error: error.message,
     });
   }
 };
 
-// ================== Получить всех пользователей ==================
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-passwordHash");
     res.json(users);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении пользователей",
+      message: "Error getting users" ,
       error: error.message,
     });
   }
 };
 
-// ================== Получить пользователя по ID ==================
 export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select("-passwordHash");
-    if (!user) return res.status(404).json({ message: "Пользователь не найден" });
+    if (!user) return res.status(404).json({ message: "Not found" });
 
     res.json(user);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении пользователя",
+      message: "Error geting user",
       error: error.message,
     });
   }
 };
 
-// ================== Создать пользователя (для админа) ==================
 export const createUser = async (req, res) => {
   try {
     const { _id, name, email, password, role, createdAt } = req.body;
@@ -151,7 +140,7 @@ export const createUser = async (req, res) => {
       _id,
       name,
       email,
-      passwordHash: password, // текстовый пароль
+      passwordHash: password,
       role,
       createdAt,
     });
@@ -160,7 +149,7 @@ export const createUser = async (req, res) => {
     res.status(201).json(newUser);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при создании пользователя",
+      message: "Error creating user",
       error: error.message,
     });
   }

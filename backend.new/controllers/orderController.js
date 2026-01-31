@@ -1,64 +1,45 @@
+import mongoose from "mongoose";
 import Order from "../models/Order.js";
 import Book from "../models/Book.js"; 
 
 export const getMyOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ userId: req.user._id.toString() });
+    res.set('Cache-Control', 'no-store');
 
-    // Для каждого заказа заменяем bookId на данные книги
-    const ordersWithDetails = await Promise.all(
-      orders.map(async order => {
-        const detailedItems = await Promise.all(
-          order.items.map(async item => {
-            const book = await Book.findById(item.bookId).select('title author price');
-            return {
-              ...item.toObject(),
-              title: book?.title || "Неизвестная книга",
-              author: book?.author || "Неизвестный автор"
-            };
-          })
-        );
+    const orders = await Order.find({ userId: req.user._id })
+      .populate('items.bookId', 'title author');
 
-        return {
-          ...order.toObject(),
-          items: detailedItems
-        };
-      })
-    );
-
-    res.json(ordersWithDetails);
+    res.json(orders);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении ваших заказов",
+      message: "Error getting user orders",
       error: error.message,
     });
   }
 };
 
-// Получить все заказы
 export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find();
     res.json(orders);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении заказов",
+      message: "Error getting orders",
       error: error.message,
     });
   }
 };
 
-// Получить заказ по ID
 export const getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
     if (!order) {
-      return res.status(404).json({ message: "Заказ не найден" });
+      return res.status(404).json({ message: "Order not found" });
     }
     res.json(order);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении заказа",
+      message: "Error getting order",
       error: error.message,
     });
   }
@@ -71,7 +52,7 @@ export const createOrder = async (req, res) => {
     for (const item of req.body.items) {
       if (!mongoose.Types.ObjectId.isValid(item.bookId)) {
         return res.status(400).json({
-          message: "Неверный bookId",
+          message: "Incorrect bookId",
           bookId: item.bookId
         });
       }
@@ -89,27 +70,26 @@ export const createOrder = async (req, res) => {
   } catch (error) {
     console.error('CREATE ORDER ERROR:', error);
     res.status(500).json({ 
-      message: "Ошибка при создании заказа",
+      message: "Error creating order",
       error: error.message
     });
   }
 };
 
-// PUT /orders/:id
 export const updateOrderStatus = async (req, res) => {
   try {
     const { status } = req.body;
 
     if (!status) {
       return res.status(400).json({
-        message: "Статус обязателен",
+        message: "Status is required",
       });
     }
 
     const order = await Order.findOne({ _id: req.params.id });
     if (!order) {
       return res.status(404).json({
-        message: "Заказ не найден",
+        message: "Order not found",
       });
     }
 
@@ -117,12 +97,12 @@ export const updateOrderStatus = async (req, res) => {
     await order.save();
 
     res.json({
-      message: "Статус заказа обновлён",
+      message: "Status uploaded",
       order,
     });
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при обновлении статуса заказа",
+      message: "Error updating order status",
       error: error.message,
     });
   }
@@ -133,17 +113,17 @@ export const deleteOrder = async (req, res) => {
 
     if (!order) {
       return res.status(404).json({
-        message: "Заказ не найден",
+        message: "Order not found",
       });
     }
 
     res.json({
-      message: "Заказ удалён",
+      message: "Order deleted",
       orderId: order._id,
     });
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при удалении заказа",
+      message: "Error deleting order",
       error: error.message,
     });
   }

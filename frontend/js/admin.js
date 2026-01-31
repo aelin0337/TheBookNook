@@ -1,13 +1,11 @@
 import { apiRequest } from './api.js';
 
-// Check token
 const token = localStorage.getItem('token');
 if (!token) {
   alert('Please log in first');
   window.location.href = 'index.html';
 }
 
-// Get current user and check admin role
 async function checkAdmin() {
   try {
     const user = await apiRequest('/users/me', 'GET', null, token);
@@ -30,7 +28,6 @@ async function checkAdmin() {
   }
 }
 
-// ------------------- Users -------------------
 async function loadUsers() {
   const usersDiv = document.getElementById('users');
   try {
@@ -88,7 +85,6 @@ window.deleteUser = async (id) => {
   }
 };
 
-// ------------------- Orders -------------------
 async function loadOrders() {
   const ordersDiv = document.getElementById('orders');
   try {
@@ -169,7 +165,6 @@ window.deleteOrder = async (id) => {
   }
 };
 
-// ------------------- Books -------------------
 async function loadBooks() {
   const booksDiv = document.getElementById('books');
   try {
@@ -227,7 +222,6 @@ window.deleteBook = async (id) => {
   }
 };
 
-// ------------------- Init -------------------
 (async () => {
   const isAdmin = await checkAdmin();
   if (!isAdmin) return;

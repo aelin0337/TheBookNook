@@ -2,7 +2,6 @@ import { apiRequest } from './api.js';
 
 const bookDiv = document.getElementById('book');
 
-// id из URL
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get('id');
 

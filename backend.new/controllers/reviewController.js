@@ -1,48 +1,44 @@
 import Review from "../models/Review.js";
 
-// Получить все отзывы
 export const getAllReviews = async (req, res) => {
   try {
     const reviews = await Review.find();
     res.json(reviews);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении отзывов",
+      message: "Error getting reviews",
       error: error.message,
     });
   }
 };
 
-// Получить отзыв по ID
 export const getReviewById = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
     if (!review) {
-      return res.status(404).json({ message: "Отзыв не найден" });
+      return res.status(404).json({ message: "Review not found" });
     }
     res.json(review);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении отзыва",
+      message: "Error getting review",
       error: error.message,
     });
   }
 };
 
-// Получить отзывы по книге
 export const getReviewsByBook = async (req, res) => {
   try {
     const reviews = await Review.find({ bookId: req.params.bookId });
     res.json(reviews);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении отзывов по книге",
+      message: "Error getting reviews for the book",
       error: error.message,
     });
   }
 };
 
-// Создать отзыв
 export const createReview = async (req, res) => {
   try {
     const { _id, userId, bookId, rating, comment, createdAt } = req.body;
@@ -60,13 +56,12 @@ export const createReview = async (req, res) => {
     res.status(201).json(newReview);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при создании отзыва",
+      message: "Error creating review",
       error: error.message,
     });
   }
 };
 
-// ⭐ АГРЕГАТ: рейтинг книги
 export const getBookRatingStats = async (req, res) => {
   try {
     const bookId = req.params.bookId;
@@ -91,13 +86,12 @@ export const getBookRatingStats = async (req, res) => {
     );
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при агрегации рейтинга книги",
+      message: "Error getting book rating stats",
       error: error.message,
     });
   }
 };
 
-// Топ книг
 export const getTopRatedBooks = async (req, res) => {
   try {
     const result = await Review.aggregate([
@@ -115,13 +109,12 @@ export const getTopRatedBooks = async (req, res) => {
     res.json(result);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении топа книг",
+      message: "Error getting top rated books",
       error: error.message,
     });
   }
 };
 
-// Активные пользователи
 export const getMostActiveUsers = async (req, res) => {
   try {
     const result = await Review.aggregate([
@@ -138,12 +131,11 @@ export const getMostActiveUsers = async (req, res) => {
     res.json(result);
   } catch (error) {
     res.status(500).json({
-      message: "Ошибка при получении активных пользователей",
+      message: "Error getting most active users",
       error: error.message,
     });
   }
 };
-// Book rating + title + author
 export const getBookRatingWithDetails = async (req, res) => {
   try {
     const bookId = req.params.bookId;
@@ -174,10 +166,10 @@ export const getBookRatingWithDetails = async (req, res) => {
 
     res.json(result[0] || {});
   } catch (error) {
-    res.status(500).json({ message: "Ошибка агрегации", error: error.message });
+    res.status(500).json({ message: "Error", error: error.message });
   }
 };
-// Top books with titles (not IDs)
+
 export const getTopRatedBooksWithDetails = async (req, res) => {
   try {
     const result = await Review.aggregate([
@@ -216,7 +208,7 @@ export const getTopRatedBooksWithDetails = async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    res.status(500).json({ message: "Ошибка агрегации", error: error.message });
+    res.status(500).json({ message: "Error agregation", error: error.message });
   }
 };
 // Reviews with user names
@@ -248,7 +240,7 @@ export const getReviewsWithUsers = async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    res.status(500).json({ message: "Ошибка агрегации", error: error.message });
+    res.status(500).json({ message: "Error agregation", error: error.message });
   }
 };
 // Book reviews + user + book
@@ -292,10 +284,10 @@ export const getFullReviewsByBook = async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    res.status(500).json({ message: "Ошибка агрегации", error: error.message });
+    res.status(500).json({ message: "Error agregation", error: error.message });
   }
 };
-//  Top genres according to reviews
+
 export const getTopGenresByReviews = async (req, res) => {
   try {
     const result = await Review.aggregate([
@@ -332,6 +324,6 @@ export const getTopGenresByReviews = async (req, res) => {
 
     res.json(result);
   } catch (error) {
-    res.status(500).json({ message: "Ошибка агрегации", error: error.message });
+    res.status(500).json({ message: "Error agregation", error: error.message });
   }
 };
