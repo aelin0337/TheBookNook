@@ -30,8 +30,8 @@ async function loadOrders() {
       const itemsHtml = order.items.map(item => `
         <li>
           ${item.title} (${item.author}) —
-          ${item.quantity} × $${item.price} =
-          <b>$${item.price * item.quantity}</b>
+          ${item.quantity} × $${item.priceAtPurchase} =
+<b>$${item.priceAtPurchase * item.quantity}</b>
         </li>
       `).join('');
 
